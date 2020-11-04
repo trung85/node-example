@@ -2,6 +2,13 @@
 FROM bitnami/node:12 as builder
 ENV NODE_ENV="production"
 
+RUN apt-get update \
+    && apt-get -y install git binutils \
+    && git clone https://github.com/aws/efs-utils \
+    && cd efs-utils \
+    && ./build-deb.sh \
+    && apt-get -y install ./build/amazon-efs-utils*deb
+
 # Copy app's source code to the /app directory
 COPY . /app
 
@@ -17,11 +24,6 @@ ENV NODE_ENV="production"
 
 # Copy the application code
 COPY --from=builder /app /app
-
-# Create a non-root user
-RUN useradd -r -u 1001 -g root nonroot
-RUN chown -R nonroot /app
-USER nonroot
 
 WORKDIR /app
 EXPOSE 3000
