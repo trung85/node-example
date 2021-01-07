@@ -3,7 +3,7 @@
 const express = require('express');
 
 // Constants
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 
 const fs = require('fs');
 const fetch = require('node-fetch');
@@ -40,6 +40,14 @@ fs.lstat(path, (err, stats) => {
 const app = express();
 app.get('/', function (req, res) {
   res.send('Hello world\n');
+});
+
+app.get('/cable', function (req, res) {
+  res.send('This is anycable server\n');
+});
+
+app.get('/health', function (req, res) {
+  res.send('anycable health\n');
 });
 
 app.listen(PORT);
