@@ -42,5 +42,13 @@ app.get('/', function (req, res) {
   res.send('Hello world\n');
 });
 
+app.get('/cable', function (req, res) {
+  res.send('This is anycable server\n');
+});
+
+app.get('/health', function (req, res) {
+  res.send('anycable health\n');
+});
+
 app.listen(PORT);
 console.log('Running on http://localhost:' + PORT);
