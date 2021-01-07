@@ -3,7 +3,7 @@
 const express = require('express');
 
 // Constants
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3334;
 
 const fs = require('fs');
 const fetch = require('node-fetch');
