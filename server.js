@@ -46,7 +46,16 @@ app.get('/cable', function (req, res) {
   res.send('This is anycable server\n');
 });
 
+app.get('/cable_diagnosis', function (req, res) {
+  res.send('This is anycable server\n');
+});
+
 app.get('/health', function (req, res) {
+  res.send('anycable health\n');
+});
+
+
+app.get('/health_check', function (req, res) {
   res.send('anycable health\n');
 });
 
