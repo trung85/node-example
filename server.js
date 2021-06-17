@@ -46,8 +46,20 @@ app.get('/cable', function (req, res) {
   res.send('This is anycable server\n');
 });
 
+app.get('/aweb', function (req, res) {
+  res.send('This is aweb server\n');
+});
+
 app.get('/health', function (req, res) {
   res.send('anycable health\n');
+});
+
+app.get('/aweb/healthz', function (req, res) {
+  res.send('health is ok\n');
+});
+
+app.get('/healthz', function (req, res) {
+  res.send('health is ok\n');
 });
 
 app.listen(PORT);
