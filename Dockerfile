@@ -26,7 +26,8 @@ ENV NODE_ENV="production"
 COPY --from=builder /app /app
 
 WORKDIR /app
-EXPOSE 3334
+
+EXPOSE 80-8000
 
 # Start the application
 CMD ["npm", "start"]

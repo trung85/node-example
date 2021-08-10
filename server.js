@@ -38,39 +38,11 @@ fs.lstat(path, (err, stats) => {
 
 // App
 const app = express();
-app.get('/', function (req, res) {
-  res.send('Hello world\n');
-});
 
-app.get('/cable', function (req, res) {
-  res.send('This is anycable server\n');
-});
-
-app.get('/cable_diagnosis', function (req, res) {
-  res.send('This is anycable server\n');
-});
-
-app.get('/health', function (req, res) {
-  res.send('anycable health\n');
-});
-
-
-app.get('/health_check', function (req, res) {
-  res.send('anycable health\n');
-});
-
-
-app.get('/aweb', function (req, res) {
-  res.send('This is aweb server\n');
-});
-
-app.get('/healthz', function (req, res) {
+app.get('/*', function (req, res) {
+  console.log(JSON.stringify(req.headers));
   res.send('health is ok\n');
 });
-app.get('/aweb/healthz', function (req, res) {
-  res.send('health is ok\n');
-});
-
 
 
 app.listen(PORT);
